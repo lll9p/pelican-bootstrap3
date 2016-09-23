@@ -1,4 +1,4 @@
-{% if DISQUS_SITENAME %}
+{% if DISQUS_SITENAME and SITEURL and article.status != "draft"  %}
     <hr/>
     <section class="comments" id="comments">
         <h2>Comments</h2>
