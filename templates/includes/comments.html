@@ -1,29 +1,14 @@
 {% if COMMENT_ON and SITEURL and article.status != "draft"  %}
     <hr/>
-    <section class="comments" id="comments">
+    <section class="comments" id="comment1s">
         <h2>{{ _('Comments') }}</h2>
-
-        {% if DUOSHUO_ID %}
-        <!-- 多说评论框 start -->
-            <div class="ds-thread" id="disqus_thread" data-thread-key="{{ article.slug }}" data-title="{{ article.title }}" data-url="{{ SITEURL }}/{{ article.url }}"></div>
-        <!-- 多说评论框 end -->
-        <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-        <script type="text/javascript">
-        var duoshuoQuery = {short_name:"{{ DUOSHUO_ID }}"};
-            (function() {
-                var ds = document.createElement('script');
-                ds.type = 'text/javascript';ds.async = true;
-                ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-                ds.charset = 'UTF-8';
-                (document.getElementsByTagName('head')[0] 
-                 || document.getElementsByTagName('body')[0]).appendChild(ds);
-            })();
-            </script>
-        <!-- 多说公共JS代码 end -->
-            <!-- Duoshuo -->
-        {% endif %}
-
+        <script data-isso="{{ ISSO_DATA_URI }}"
+            data-isso-css="False"
+            data-isso-lang="zh"
+            data-isso-reply-to-self="True"
+            data-isso-avatar="true"
+            src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/embed.min.js"></script>
+         <section id="isso-thread" class="ds-thread" id="disqus_thread" data-thread-key="{{ article.slug }}" data-title="{{ article.title }}" data-url="{{ SITEURL }}/{{ article.url }}"></section>
         <noscript>请开启 JavaScript 以查看评论。</noscript>
-
     </section>
 {% endif %}
