@@ -1,6 +1,6 @@
-{% if COMMENT_ON and SITEURL and article.status != "draft"  %}
+{% if DISQUS_SITENAME %}
     <hr/>
-    <section class="comments" id="comment1s">
+    <section class="comments" id="comments">
         <h2>{{ _('Comments') }}</h2>
         <script data-isso="{{ ISSO_DATA_URI }}"
             data-isso-css="False"
@@ -8,7 +8,8 @@
             data-isso-reply-to-self="True"
             data-isso-avatar="true"
             src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/embed.min.js"></script>
-         <section id="isso-thread" class="ds-thread" id="disqus_thread" data-thread-key="{{ article.slug }}" data-title="{{ article.title }}" data-url="{{ SITEURL }}/{{ article.url }}"></section>
+        <section id="isso-thread" class="ds-thread" id="disqus_thread" data-thread-key="{{ article.slug }}" data-title="{{ article.title }}" data-url="{{ SITEURL }}/{{ article.url }}">
+        </section>
         <noscript>请开启 JavaScript 以查看评论。</noscript>
     </section>
 {% endif %}
