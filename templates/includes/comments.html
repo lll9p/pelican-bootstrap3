@@ -1,14 +1,19 @@
 {% if COMMENT_ON %}
     <hr/>
+    <link rel="stylesheet" href="https://disqus-api.laolilin.com/src/iDisqus.min.css" />
+    <script src="https://disqus-api.laolilin.com/src/iDisqus.min.js"></script>
     <section class="comments" id="comments">
         <h2>{{ _('Comments') }}</h2>
-        <script data-isso="{{ ISSO_DATA_URI }}"
-            data-isso-css="False"
-            data-isso-lang="zh"
-            data-isso-reply-to-self="True"
-            data-isso-avatar="true"
-            src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/embed.min.js"></script>
-        <section id="isso-thread" class="ds-thread" id="disqus_thread" data-thread-key="{{ article.slug }}" data-title="{{ article.title }}" data-url="{{ SITEURL }}/{{ article.url }}">
+        <script>
+        var disq = new iDisqus('comments', {
+            forum: 'fooleap',
+            api: 'https://disqus-api.laolilin.com',
+            site: 'https://blog.laolilin.com',
+            mode: 1,
+            timeout: 3000,
+            init: true
+        });
+        </script>
         </section>
         <noscript>请开启 JavaScript 以查看评论。</noscript>
     </section>
